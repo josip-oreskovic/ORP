@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Create New Client</h2>
+    
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Naziv*</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_company_type">Vrsta*</label>
+            <select id="id_company_type" name="id_company_type" required>
+                {% for ct in company_types %}
+                <option value="{{ ct.id }}">{{ ct.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_size">Veličina*</label>
+            <select id="id_size" name="id_size" required>
+                {% for cs in company_sizes %}
+                <option value="{{ cs.id }}">{{ cs.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="address">Adresa</label>
+            <input type="text" id="address" name="address">
+        </div>
+        
+        <div class="form-group">
+            <label for="city">Grad</label>
+            <input type="text" id="city" name="city">
+        </div>
+        
+        <div class="form-group">
+            <label for="post_number">Poštanski broj</label>
+            <input type="text" id="post_number" name="post_number">
+        </div>
+        
+        <div class="form-group">
+            <label for="country">Država</label>
+            <input type="text" id="country" name="country">
+        </div>
+        
+        <div class="form-group">
+            <label for="tel">Telefon</label>
+            <input type="text" id="tel" name="tel">
+        </div>
+        
+        <div class="form-group">
+            <label for="mob">Mobitel</label>
+            <input type="text" id="mob" name="mob">
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+        </div>
+        
+        <div class="form-group">
+            <label for="fax">Fax</label>
+            <input type="text" id="fax" name="fax">
+        </div>
+        
+        <div class="form-group">
+            <label for="id_director">Direktor</label>
+            <input type="text" id="id_director" name="id_director">
+        </div>
+        
+        <div class="form-group">
+            <label for="pin">OIB</label>
+            <input type="text" id="pin" name="pin">
+        </div>
+        
+        <div class="form-group">
+            <label for="vat_num">PDV-ID</label>
+            <input type="text" id="vat_num" name="vat_num">
+        </div>
+        
+        <div class="form-group">
+            <label for="reg_numb">MBS</label>
+            <input type="text" id="reg_numb" name="reg_numb">
+        </div>
+        
+        <div class="form-group">
+            <label for="stat_num">MB</label>
+            <input type="text" id="stat_num" name="stat_num">
+        </div>
+        
+        <div class="form-group">
+            <label for="activity_num">NKD</label>
+            <input type="text" id="activity_num" name="activity_num">
+        </div>
+        
+        <div class="form-group">
+            <label for="activity_desc">Djelatnost</label>
+            <textarea id="activity_desc" name="activity_desc" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="hzmo_num">HZMO</label>
+            <input type="text" id="hzmo_num" name="hzmo_num">
+        </div>
+        
+        <div class="form-group">
+            <label for="hzzo_num">HZZO</label>
+            <input type="text" id="hzzo_num" name="hzzo_num">
+        </div>
+        
+        <div class="form-group">
+            <label for="vat_period">PDV obveznik</label>
+            <input type="text" id="vat_period" name="vat_period">
+        </div>
+        
+        <div class="form-group">
+            <label for="employee_num">Broj zaposlenih</label>
+            <input type="number" id="employee_num" name="employee_num" value="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="price">Cijena</label>
+            <input type="number" step="0.01" id="price" name="price" value="0.00">
+        </div>
+        
+        <button type="submit" class="btn submit">Spremi</button>
+        <a href="{{ url_for('index') }}" class="btn cancel">Odustani</a>
+    </form>
+{% endblock %}

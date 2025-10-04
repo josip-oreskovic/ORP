@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Podaci o klijentu: {{ client.name }}</h2>
+    
+    <div class="client-details">
+        <div class="detail-row">
+            <span class="label">Šifra:</span>
+            <span class="value">{{ client.id_client }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Naziv:</span>
+            <span class="value">{{ client.name }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Vrsta:</span>
+            <span class="value">{{ client.id_company_type.name }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Veličina:</span>
+            <span class="value">{{ client.id_size.name }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Adresa:</span>
+            <span class="value">{{ client.address or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Grad:</span>
+            <span class="value">{{ client.city or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Poštanski broj:</span>
+            <span class="value">{{ client.post_number or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Država:</span>
+            <span class="value">{{ client.country or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Telefon:</span>
+            <span class="value">{{ client.tel or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Mobitel:</span>
+            <span class="value">{{ client.mob or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Email:</span>
+            <span class="value">{{ client.email or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Fax:</span>
+            <span class="value">{{ client.fax or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Direktor:</span>
+            <span class="value">{{ client.id_director or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">OIB:</span>
+            <span class="value">{{ client.pin or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">PDV-ID:</span>
+            <span class="value">{{ client.vat_num or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">MBS:</span>
+            <span class="value">{{ client.reg_numb or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">MB:</span>
+            <span class="value">{{ client.stat_num or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">NKD:</span>
+            <span class="value">{{ client.activity_num or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Djelatnost:</span>
+            <span class="value">{{ client.activity_desc or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">HZMO:</span>
+            <span class="value">{{ client.hzmo_num or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">HZZO:</span>
+            <span class="value">{{ client.hzzo_num or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">PDV obveznik:</span>
+            <span class="value">{{ client.vat_period or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Broj zaposlenih:</span>
+            <span class="value">{{ client.employee_num or '-' }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Cijena:</span>
+            <span class="value">{{ "%.2f"|format(client.price) if client.price else '-' }}</span>
+        </div>
+    </div>
+    
+    <div class="actions">
+        <a href="{{ url_for('edit_client', id=client.id_client) }}" class="btn edit">Uredi</a>
+        <form action="{{ url_for('delete_client', id=client.id_client) }}" method="POST" onsubmit="return confirm('Jeste li sigurni?');">
+            <button type="submit" class="btn delete">Obriši</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="btn back">Natrag</a>
+    </div>
+{% endblock %}

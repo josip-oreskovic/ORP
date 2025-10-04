@@ -48,6 +48,10 @@ Aplikacija podržava različite vrste klijenata u Hrvatskoj, uključujući:
 
 ORP je idealno rješenje za moderne računovodstvene servise koji žele optimizirati svoje poslovne procese i osigurati pravovremeno izvršavanje svih računovodstvenih obveza. 🚀
 
+## Use Case Diagram
+
+![ORP Use Case Diagram](ORP%20-%20Use%20Case.png)
+
 ## Instalacija
 
 ```
